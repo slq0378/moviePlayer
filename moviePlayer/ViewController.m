@@ -8,7 +8,8 @@
 
 #import "ViewController.h"
 #import "PlayerViewContrller.h"
-
+#import <AVFoundation/AVFoundation.h>
+#import <AVKit/AVKit.h>
 
 
 @interface ViewController ()
@@ -32,8 +33,14 @@
 }
 - (void)playVideo {
      NSURL *url = [[NSBundle mainBundle] URLForResource:@"hubblecast" withExtension:@"m4v"];
+    // AVPlayerViewController简单使用，iOS8开始支持
+//    AVPlayerViewController *vc = [[AVPlayerViewController alloc] init];
+//    vc.showsPlaybackControls = YES;
+//    NSLog(@"%@",NSStringFromCGRect(vc.videoBounds));
+//    vc.player = [AVPlayer playerWithURL:url];
+    
     PlayerViewContrller *vc = [[PlayerViewContrller alloc] initWithUrl:url];
-
+//
     [self presentViewController:vc animated:YES completion:^{
         
     }];
